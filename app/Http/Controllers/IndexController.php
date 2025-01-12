@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\SendConfirmationEmail;
+use App\Models\AdTypess;
 use App\Models\Clients;
 use App\Models\CustomSettings;
 use App\Models\Faq;
@@ -40,6 +41,7 @@ class IndexController extends Controller
         $clients = Clients::all();
         $who_is_for = FrontendForWho::all();
         $generatorsList = FrontendGenerators::all();
+        $ads = AdTypess::where('type', 1)->get();
 
 
 
@@ -62,7 +64,8 @@ class IndexController extends Controller
             'clients',
             'futures',
             'who_is_for',
-            'generatorsList'
+            'generatorsList',
+            'ads'
         ));
     }
 

@@ -35,6 +35,11 @@
 			isLandingPage: true
 		};
 	</script>
+	@if(isset($ads) && $ads != null)
+		@foreach($ads as $ad)
+			{!!$ad->script!!}
+		@endforeach
+    @endif
 </head>
 <body class="font-golos bg-body-bg text-body group/body">
 	<script src="/assets/js/tabler-theme.min.js"></script>

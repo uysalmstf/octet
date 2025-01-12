@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\SettingsController;
 use App\Http\Controllers\Dashboard\SearchController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\AIChatController;
+use App\Http\Controllers\Dashboard\AdListController;
 use App\Http\Controllers\Dashboard\AdsController;
 use App\Http\Controllers\GatewayController;
 use Illuminate\Support\Facades\App;
@@ -176,14 +177,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
                 Route::get('/add-or-update/{id?}', [AdsController::class, 'adTypeAddOrUpdate'])->name('adTypesAddOrUpdate');
                 Route::get('/delete/{id?}', [AdsController::class, 'adTypeDelete'])->name('delete');
                 Route::post('/save', [AdsController::class, 'adTypeSave']);
-            });
-
-            //Ads
-            Route::prefix('ads')->name('ads.')->group(function () {
-                Route::get('/', [AdsController::class, 'ads'])->name('ads');
-                Route::get('/add-or-update/{id?}', [AdsController::class, 'adsAddOrUpdate'])->name('adsAddOrUpdate');
-                Route::get('/delete/{id?}', [AdsController::class, 'adsdelete'])->name('delete');
-                Route::post('/save', [AdsController::class, 'adsSave']);
             });
 
             //Finance

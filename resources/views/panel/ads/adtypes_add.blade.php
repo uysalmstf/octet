@@ -52,7 +52,13 @@
 								@endforeach
 							</select>
 						</div>
-						
+						<div class="mb-[20px]">
+							<label class="form-label">
+								{{__('Ad Type Script')}}
+								<x-info-tooltip text="{{__('Add a ad type title. Example: Privacy Policy.')}}" />
+							</label>
+							<textarea class="form-control" name="script" id="script" cols="30" rows="10">{{$ad_type!=null ? $ad_type->script : null}}</textarea>
+						</div>
 						<button form="page_form" id="page_button" class="btn btn-primary !py-3 w-100">
 							{{__('Save')}}
 						</button>

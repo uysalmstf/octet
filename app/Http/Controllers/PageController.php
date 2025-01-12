@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdTypess;
 use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -18,7 +19,9 @@ class PageController extends Controller
         }
 
         if ($page) {
-            return view('page.index', compact('page'));
+
+            $ads = AdTypess::where('type', 2)->get();
+            return view('page.index', compact('page', 'ads'));
         } else {
             abort(404);
         }
